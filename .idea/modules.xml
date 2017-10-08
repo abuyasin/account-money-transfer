@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/acc-transfer-core/acc-transfer-core.iml" filepath="$PROJECT_DIR$/acc-transfer-core/acc-transfer-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/acc-transfer-dto/acc-transfer-dto.iml" filepath="$PROJECT_DIR$/acc-transfer-dto/acc-transfer-dto.iml" />
+      <module fileurl="file://$PROJECT_DIR$/acc-transfer-rest/acc-transfer-rest.iml" filepath="$PROJECT_DIR$/acc-transfer-rest/acc-transfer-rest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/acc-transfer-soap/acc-transfer-soap.iml" filepath="$PROJECT_DIR$/acc-transfer-soap/acc-transfer-soap.iml" />
+      <module fileurl="file://$PROJECT_DIR$/acc-transfer-web/acc-transfer-web.iml" filepath="$PROJECT_DIR$/acc-transfer-web/acc-transfer-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/core-banking.iml" filepath="$PROJECT_DIR$/core-banking.iml" />
+      <module fileurl="file://$PROJECT_DIR$/acc-transfer-soap/src/main/main.iml" filepath="$PROJECT_DIR$/acc-transfer-soap/src/main/main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/acc-transfer-core/src/main/main1.iml" filepath="$PROJECT_DIR$/acc-transfer-core/src/main/main1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/acc-transfer-dto/src/main/main2.iml" filepath="$PROJECT_DIR$/acc-transfer-dto/src/main/main2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/acc-transfer-web/src/main/main3.iml" filepath="$PROJECT_DIR$/acc-transfer-web/src/main/main3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/acc-transfer-rest/src/main/main4.iml" filepath="$PROJECT_DIR$/acc-transfer-rest/src/main/main4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/acc-transfer-core/src/test/test.iml" filepath="$PROJECT_DIR$/acc-transfer-core/src/test/test.iml" />
+    </modules>
+  </component>
+</project>

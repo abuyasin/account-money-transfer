@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="acc-transfer-core" />
+        <module name="acc-transfer-dto" />
+        <module name="acc-transfer-rest" />
+        <module name="acc-transfer-soap" />
+        <module name="acc-transfer-web" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="acc-transfer-core" target="1.8" />
+      <module name="acc-transfer-dto" target="1.8" />
+      <module name="acc-transfer-rest" target="1.8" />
+      <module name="acc-transfer-soap" target="1.5" />
+      <module name="acc-transfer-web" target="1.8" />
+      <module name="core-banking" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

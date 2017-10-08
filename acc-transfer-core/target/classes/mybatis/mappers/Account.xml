@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="abu.sadat.yasin.core.dao.AccountDAO"  >
+
+    <resultMap id="accountResult" type="abu.sadat.yasin.dto.AccountData">
+        <result property="accountNo" column="ACCOUNTNO" />
+        <result property="fullName" column="FULLNAME" />
+        <result property="balance" column="BALANCE" />        
+    </resultMap>
+
+    <insert id='createAnAccount' parameterType='abu.sadat.yasin.dto.AccountData' keyProperty='accountNo'>
+        INSERT INTO ACCOUNT 
+        (
+        ACCOUNTNO, FULLNAME, BALANCE
+        )
+        VALUES
+        (
+        #{accountNo}, #{fullName}, #{balance}
+        )
+    </insert>
+
+    <update id="updateAnAccount" parameterType="abu.sadat.yasin.dto.AccountData">
+        UPDATE ACCOUNT SET 
+        <if test="accountNo != null" >ACCOUNTNO = #{accountNo}, </if>
+        <if test="fullName != null" >FULLNAME = #{fullName}, </if>
+        BALANCE = #{balance}
+        WHERE 
+        ACCOUNTNO = #{accountNo}
+    </update>
+
+    <select id="getAccountList" parameterType="java.util.Map" resultMap="accountResult" >
+        SELECT 
+        ac.ACCOUNTNO, 
+        ac.FULLNAME, 
+        ac.BALANCE
+        FROM ACCOUNT ac  
+        WHERE 1 = 1
+        <if test="accountNo != null" > AND ac.ACCOUNTNO = #{accountNo} </if>
+        <if test="fullName != null" > AND ac.FULLNAME = #{fullName} </if>
+        <if test="balance != null" > AND ac.BALANCE = #{balance} </if>
+        ORDER BY ac.FULLNAME ASC
+    </select>
+</mapper>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+    "
+>
+
+    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:acc-transfer-core.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <!--
+        https://hub.docker.com/r/alexeiled/docker-oracle-xe-11g/
+        hostname: localhost
+        port: 1521
+        sid: xe
+        username: system or SYS
+        password: oracle
+        http://localhost:8080/apex
+    -->
+    <!--docker run -d &#45;&#45;shm-size=2g -p 1521:1521 -p 8080:8080 alexeiled/docker-oracle-xe-11g-->
+    <!--http://www.mkyong.com/maven/how-to-add-oracle-jdbc-driver-in-your-maven-local-repository/-->
+
+    <bean id="dataSource" class="oracle.jdbc.pool.OracleDataSource" destroy-method="close">
+        <property name="URL" value="jdbc:oracle:thin:@//localhost:1521/orcl"/>
+        <property name="user" value="acctransferdb"/>
+        <property name="password" value="123456"/>
+    </bean>
+
+
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <property name="configLocation" value="classpath:mybatis/mybatis-conf.xml" />
+    </bean>
+
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="abu.sadat.yasin.core.dao" />
+    </bean>
+
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
+    <context:component-scan base-package="abu.sadat.yasin.core" />
+
+</beans>

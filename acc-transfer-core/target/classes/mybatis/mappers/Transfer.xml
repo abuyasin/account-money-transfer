@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="abu.sadat.yasin.core.dao.TransferDAO"  >
+
+    <resultMap id="transferResult" type="abu.sadat.yasin.dto.TransferData">
+        <result property="transactionId" column="TRANSACTIONID" />
+        <result property="srcAccountNo" column="SRCACCOUNTNO" />
+        <result property="desAccountNo" column="DESACCOUNTNO" />
+        <result property="amount" column="AMOUNT" />
+        <result property="type" column="TYPE" />
+        <result property="status" column="STATUS" />
+    </resultMap>
+
+    <insert id='createAnTransfer' parameterType='abu.sadat.yasin.dto.TransferData' keyProperty='transactionId'>
+        INSERT INTO TRANSFER 
+        (
+        TRANSACTIONID, SRCACCOUNTNO, DESACCOUNTNO, AMOUNT, TYPE, STATUS
+        )
+        VALUES
+        (
+        #{transactionId}, #{srcAccountNo}, #{desAccountNo}, #{amount}, #{type}, #{status}
+        )
+    </insert>
+
+    <update id="updateAnTransfer" parameterType="abu.sadat.yasin.dto.TransferData">
+        UPDATE TRANSFER SET 
+        <if test="srcAccountNo != null" >SRCACCOUNTNO = #{srcAccountNo}, </if>
+        <if test="desAccountNo != null" >DESACCOUNTNO = #{desAccountNo}, </if>
+        <if test="amount != null" >AMOUNT = #{amount}, </if>
+        <if test="type != null" >TYPE = #{type}, </if>
+        STATUS = #{status}
+        WHERE 
+        TRANSACTIONID = #{transactionId}
+    </update>
+
+    <select id="getTransferList" parameterType="java.util.Map" resultMap="transferResult" >
+        SELECT 
+        TRANSACTIONID, 
+        SRCACCOUNTNO, 
+        DESACCOUNTNO, 
+        AMOUNT, 
+        TYPE,       
+        STATUS
+        FROM TRANSFER
+        WHERE 1 = 1
+        <if test="transactionId != null" > AND TRANSACTIONID = #{transactionId} </if>
+        <if test="srcAccountNo != null" > AND SRCACCOUNTNO = #{srcAccountNo} </if>
+        <if test="desAccountNo != null" > AND DESACCOUNTNO = #{desAccountNo} </if>
+        <if test="type != null" > AND TYPE = #{type} </if>
+        <if test="status != null" > AND STATUS = #{status} </if>
+        ORDER BY TRANSACTIONID
+    </select>
+</mapper>

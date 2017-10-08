@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>abu.sadat.yasin</groupId>
+    <artifactId>acc-transfer</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <name>Account Transfer System</name>
+    <packaging>pom</packaging>
+
+    <modules>        
+        <module>acc-transfer-dto</module>
+        <module>acc-transfer-core</module>
+        <module>acc-transfer-rest</module>
+    </modules>
+
+    <repositories>
+        <repository>
+            <id>maven.oracle.com</id>
+            <name>oracle-maven-repo</name>
+            <url>https://maven.oracle.com</url>
+            <layout>default</layout>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </releases>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>maven.oracle.com</id>
+            <name>oracle-maven-repo</name>
+            <url>https://maven.oracle.com</url>
+            <layout>default</layout>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </releases>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <properties>
+
+        <java.version>1.8</java.version>
+        <maven.compiler.plugin.version>3.6.0</maven.compiler.plugin.version>
+        <maven.web.plugin.version>3.0.0</maven.web.plugin.version>
+
+        <javax.servlet.version>3.1.0</javax.servlet.version>
+        <javax.jstl.version>1.2</javax.jstl.version>
+        <springframework.version>4.3.5.RELEASE</springframework.version>
+        <spring.jaxws.version>1.9</spring.jaxws.version>
+        <spring.ws.version>2.4.0.RELEASE</spring.ws.version>
+        <jaxws.rt.version>2.2.10</jaxws.rt.version>
+        <jackson.version>2.8.5</jackson.version>
+        <javax.validation.version>1.1.0.Final</javax.validation.version>
+        <istack.commons.runtime.version>2.21</istack.commons.runtime.version>
+
+        <!--<ojdbc7.version>12.1.0.2</ojdbc7.version>--> 
+        <ojdbc7.version>12.1.0.1</ojdbc7.version>
+        <cglib.version>3.2.4</cglib.version>
+        <mybatis.version>3.4.2</mybatis.version>
+        <mybatis.spring.version>1.3.1</mybatis.spring.version>
+        
+        <hibernate.validator.version>5.4.0.Final</hibernate.validator.version>
+        <hibernate.jpa-2.version>1.0.1.Final</hibernate.jpa-2.version>
+       
+
+        <commons.dbcp.version>1.4</commons.dbcp.version>
+        <commons.collections.version>3.2.2</commons.collections.version>
+        <commons.lang3.version>3.5</commons.lang3.version>
+        <commons.fileupload.version>1.3.2</commons.fileupload.version>
+
+        <slf4j.version>1.7.22</slf4j.version>
+        <logback.version>1.1.8</logback.version>
+
+        <junit.version>4.12</junit.version>
+        
+        <springsecurity.version>4.1.1.RELEASE</springsecurity.version>
+
+    </properties>
+    
+
+</project>
